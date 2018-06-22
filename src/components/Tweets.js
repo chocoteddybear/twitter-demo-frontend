@@ -1,5 +1,5 @@
 import React from "react";
-import { Tweet } from "./components/Tweet";
+import { Tweet } from "./Tweet";
 
 export const Tweets = props => (
   <div>

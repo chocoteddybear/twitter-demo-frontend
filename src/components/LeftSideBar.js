@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import Icon_Location from "../images/Icon_Location.svg";
 import Icon_Joined from "../images/Icon_Joined.svg";
 import Icon_Link from "../images/Icon_Link.svg";
+import Followers from "./FollowerList";
+import ProfileMedia from "./ProfileMedia";
 
 const SideBar = styled.div`
   position: relative;
@@ -84,7 +86,7 @@ const UserData = styled.span`
   padding-left: 10px;
 `;
 
-const UserWebite = styled.a`
+const UserWebsite = styled.a`
   cursor: pointer;
   text-decoration: none;
   font-weight: regular;
@@ -115,7 +117,7 @@ const BlueBtn = styled.button`
   text-align: center;
   letter-spacing: 0.01px;
   transition: all 0.2s ease-in-out;
-  padding: 12px 30px;
+  padding: 12px 32px;
   margin-top: 15px;
   margin-right: 5px;
   &:hover {
@@ -151,9 +153,9 @@ export default class LeftSideBar extends Component {
         </FlexRowBlock>
         <FlexRowBlock>
           <Icons src={Icon_Link} alt="Link" />
-          <UserWebite href="https://www.everyinteraction.com/">
+          <UserWebsite href="https://www.everyinteraction.com/" target="_blank">
             everyinteraction.com
-          </UserWebite>
+          </UserWebsite>
         </FlexRowBlock>
         <FlexRowBlock>
           <Icons src={Icon_Joined} alt="Joined" />
@@ -163,6 +165,8 @@ export default class LeftSideBar extends Component {
           <BlueBtn>Tweet to</BlueBtn>
           <BlueBtn>Message</BlueBtn>
         </FlexRowBlock>
+        <Followers />
+        <ProfileMedia />
       </SideBar>
     );
   }

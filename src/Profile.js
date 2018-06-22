@@ -5,9 +5,10 @@ import "flexboxgrid2";
 import { Header } from "./Header";
 import { MidNavBar } from "./components/MidNavBar";
 import LeftSideBar from "./components/LeftSideBar";
+import RightSideBar from "./components/RightSideBar";
 import TweetTabs from "./components/TweetTabs";
 // import Tweet from "./components/Tweet";
-import { Tweets } from "./tweetSamples";
+import { Tweets } from "./components/Tweets";
 
 const MainContainer = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -50,7 +51,7 @@ const Profile = () => (
               <TweetTabs />
               <Tweets />
             </MainTweetBlock>
-            <div className="col-xs-3" />
+            <RightSideBar />
           </div>
         </div>
       </Block>
