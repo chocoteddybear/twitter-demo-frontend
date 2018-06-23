@@ -14,7 +14,7 @@ const TopNav = styled.div`
   align-items: center;
 `;
 
-const Nav = styled.div`
+const Navigation = styled.div`
   display: flex;
   font-color: #667580;
   justify-content: flex-start;
@@ -107,7 +107,7 @@ export const Header = () => (
     <div className="row">
       <div className="col-xs-5">
         <TopNav>
-          <Nav>
+          <Navigation>
             <NavItem>
               <Link to="/EveryInteraction">
                 <img src={iconHome} alt="Home" />
@@ -132,7 +132,7 @@ export const Header = () => (
                 <NavText>Messages</NavText>
               </Link>
             </NavItem>
-          </Nav>
+          </Navigation>
         </TopNav>
       </div>
       <div className="col-xs-2 center-lg">
