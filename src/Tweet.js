@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import "flexboxgrid2";
-import Icon_Comments from "../images/Icon_Comments.svg";
-import Icon_Retweet from "../images/Icon_Retweet.svg";
-import Icon_Loves from "../images/Icon_Loves.svg";
-import Icon_LovesRED from "../images/Icon_LovesRED.png";
-import Icon_Envelope from "../images/Icon_Envelope.svg";
-import Icon_Pinned from "../images/Icon_Pinned.svg";
+import iconComments from "./images/icon-comments.svg";
+import iconRetweet from "./images/icon-retweet.svg";
+import iconLoves from "./images/icon-loves.svg";
+import iconLovesRed from "./images/icon-loves-red.png";
+import iconEnvelope from "./images/icon-envelope.svg";
+import iconPinned from "./images/icon-pinned.svg";
 
 const PinBox = styled.div`
   display: flex;
@@ -32,7 +31,6 @@ const TweetBox = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-
   border-bottom: 1px solid #e1e8ed;
 `;
 
@@ -73,7 +71,6 @@ const TweetTag = styled.a`
   margin: 10px 5px;
   font-size: 13px;
   color: #697787;
-  letter-spacing: 0.02px;
   line-height: 16px;
   text-decoration: none;
 `;
@@ -82,7 +79,6 @@ const TweetTime = styled.span`
   margin: 10px 5px;
   font-size: 13px;
   line-height: 16px;
-  letter-spacing: 0.02px;
   color: #697787;
 `;
 
@@ -101,7 +97,6 @@ const Article = styled.p`
   line-height: ${props => (props.size ? "30px" : "22px")};
   font-size: ${props => (props.size ? "25px" : "16px")};
   font-weight: ${props => (props.size ? "200" : "400")};
-  letter-spacing: ${props => (props.size ? "0" : "-0.22px")};
   color: #292f33;
   margin-top: 0;
   margin-left: 5px;
@@ -134,7 +129,6 @@ const TweetClickCount = styled.span`
   font-size: 13px;
   line-height: 15px;
   text-align: left;
-  letter-spacing: -0.19px;
   cursor: pointer;
 `;
 
@@ -191,7 +185,7 @@ export const Tweet = ({
       {pin && (
         <PinBlock>
           <div>
-            <img src={Icon_Pinned} alt="Pinned" />
+            <img src={iconPinned} alt="Pinned" />
           </div>
           <PinText>Pinned Tweet</PinText>
         </PinBlock>
@@ -223,23 +217,23 @@ export const Tweet = ({
         </TweetBody>
         <TweetFooter>
           <TweetExtension>
-            <TweetIcon src={Icon_Comments} alt="" />
+            <TweetIcon src={iconComments} alt="" />
             <TweetClickCount>{comments}</TweetClickCount>
           </TweetExtension>
           <TweetExtension>
-            <TweetIcon src={Icon_Retweet} alt="" />
+            <TweetIcon src={iconRetweet} alt="" />
             <TweetClickCount>{retweets}</TweetClickCount>
           </TweetExtension>
           <TweetExtension>
             {likes ? (
-              <TweetIcon src={Icon_LovesRED} />
+              <TweetIcon src={iconLovesRed} />
             ) : (
-              <TweetIcon src={Icon_Loves} />
+              <TweetIcon src={iconLoves} />
             )}
             <TweetClickCount>{likes}</TweetClickCount>
           </TweetExtension>
           <TweetExtension>
-            <TweetIcon src={Icon_Envelope} alt="" />
+            <TweetIcon src={iconEnvelope} alt="" />
             <TweetClickCount>{envelope}</TweetClickCount>
           </TweetExtension>
         </TweetFooter>

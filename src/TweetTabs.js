@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import "flexboxgrid2";
 import { NavLink } from "react-router-dom";
 
 const TabNav = styled.div`
@@ -40,26 +39,24 @@ const TabText = styled.span`
   letter-spacing: -0.1px;
 `;
 
-export default class TweetTabs extends Component {
-  render() {
-    return (
-      <TabNav className="col-xs">
-        <TabItem>
-          <TabLink to="/EveryInteraction">
-            <TabText active>Tweets</TabText>
-          </TabLink>
-        </TabItem>
-        <TabItem>
-          <TabLink to="/EveryInteraction/Tweets & replies">
-            <TabText>Tweets & replies</TabText>
-          </TabLink>
-        </TabItem>
-        <TabItem>
-          <TabLink to="/EveryInteraction/Media">
-            <TabText>Media</TabText>
-          </TabLink>
-        </TabItem>
-      </TabNav>
-    );
-  }
-}
+export const TweetTabs = () => (
+  <div className="col-xs">
+    <TabNav>
+      <TabItem>
+        <TabLink to="/EveryInteraction">
+          <TabText active>Tweets</TabText>
+        </TabLink>
+      </TabItem>
+      <TabItem>
+        <TabLink to="/EveryInteraction/tweetsandreplies">
+          <TabText>Tweets & replies</TabText>
+        </TabLink>
+      </TabItem>
+      <TabItem>
+        <TabLink to="/EveryInteraction/media">
+          <TabText>Media</TabText>
+        </TabLink>
+      </TabItem>
+    </TabNav>
+  </div>
+);

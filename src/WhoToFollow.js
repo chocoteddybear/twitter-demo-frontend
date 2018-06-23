@@ -1,23 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import "flexboxgrid2";
 import { Link } from "react-router-dom";
-import verify from "../images/verify.png";
+import verify from "./images/verify.png";
+import iconPeople from "./images/icon-people.png";
+import dotWhoToFollow from "./images/dot-who-to-follow.svg";
 
-const whoToFollow = [
+const publicUrl = process.env.PUBLIC_URL;
+
+const users = [
   {
     id: 1,
     title: "AppleInsider",
     nick: "@appleinsider",
     link: "AppleInsider",
-    img: process.env.PUBLIC_URL + "/images/apple-insider.png"
+    img: `${publicUrl}/images/apple-insider.png`
   },
   {
     id: 2,
     title: "Creode",
     nick: "@Creode",
     link: "Creode",
-    img: process.env.PUBLIC_URL + "/images/creode-avatar.png",
+    img: `${publicUrl}/images/creode-avatar.png`,
     verify: true
   },
   {
@@ -25,15 +28,21 @@ const whoToFollow = [
     title: "Epiphany Search",
     nick: "@Epiph…",
     link: "EpiphanySearch",
-    img: process.env.PUBLIC_URL + "/images/epiphany-search.png"
+    img: `${publicUrl}/images/epiphany-search.png`
   }
 ];
 
-const WhoToFollowBlock = styled.div`
+const User = styled.div`
   display: flex;
   flex-direction: row;
   padding: 15px;
   border-bottom: 1px solid #e6ecf0;
+`;
+
+const ToFollow = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
 `;
 
 const FollowBtn = styled.button`
@@ -49,7 +58,6 @@ const FollowBtn = styled.button`
   height: 32px;
   line-height: 14px;
   text-align: center;
-  letter-spacing: 0.01px;
   padding: 8px 15px;
   transition: all 0.2s ease-in-out;
   min-width: 99px;
@@ -99,9 +107,53 @@ const ToFollowLink = styled(Link)`
   text-decoration: none;
 `;
 
-function ProfileMedia(props) {
-  const whoToFollowElements = props.whoToFollow.map(toFollow => (
-    <WhoToFollowBlock key={toFollow.id}>
+const Title = styled.div`
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+`;
+
+const TitleBlockLink = styled(Link)`
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #1da1f2;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Icon = styled.img`
+  width: 16px;
+  height: 12px;
+  margin-top: 2px;
+`;
+
+const UserData = styled(Link)`
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: left;
+  margin-left: 10px;
+  color: #1da1f2;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Dot = styled.img`
+  width: 2px;
+  height: 2px;
+  margin-top: 12px;
+  margin-left: 5px;
+`;
+
+export default function WhoToFollow() {
+  const usersData = users.map(toFollow => (
+    <User key={toFollow.id}>
       <ToFollowLink to={toFollow.link}>
         <AvatarImg src={toFollow.img} alt="" />
       </ToFollowLink>
@@ -116,9 +168,22 @@ function ProfileMedia(props) {
           <FollowBtn>Follow</FollowBtn>
         </div>
       </TitleBlock>
-    </WhoToFollowBlock>
+    </User>
   ));
-  return <div>{whoToFollowElements}</div>;
+  return (
+    <div>
+      <ToFollow>
+        <Title>Who to follow</Title>
+        <Dot src={dotWhoToFollow} alt="" />
+        <TitleBlockLink to="/">Refresh</TitleBlockLink>
+        <Dot src={dotWhoToFollow} alt="" />
+        <TitleBlockLink to="/whotofollow">View all</TitleBlockLink>
+      </ToFollow>
+      {usersData}
+      <ToFollow>
+        <Icon src={iconPeople} alt="Location" />
+        <UserData to="/findpeople">Find people you know</UserData>
+      </ToFollow>
+    </div>
+  );
 }
-
-export default props => <ProfileMedia whoToFollow={whoToFollow} />;

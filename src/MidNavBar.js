@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import "flexboxgrid2";
 import { NavLink } from "react-router-dom";
-import Icon_More from "../images/Icon_More.png";
+import iconMore from "./images/icon-more.png";
 
-const MainBlock = styled.div`
+const Container = styled.div`
   boxshadow: 0 1px 3px 0 #b0b8be;
   margin: 0;
 `;
@@ -26,21 +25,18 @@ const NavItem = styled.div`
   font-weight: bold;
   font-size: 13px;
   line-height: 20px;
-  letter-spacing: 0.01px;
 `;
 
 const NavText = styled.span`
   text-align: center;
   font-size: 12px;
   line-height: 21px;
-  letter-spacing: 0.01px;
 `;
 
-const NavNumbers = styled.span`
+const NavNumber = styled.span`
   text-align: center;
   font-size: 18px;
   line-height: 21px;
-  letter-spacing: 0.01px;
 `;
 
 const Link = styled(NavLink)`
@@ -53,13 +49,13 @@ const Link = styled(NavLink)`
   &:hover {
     border-bottom: 2px solid #1da1f2;
   }
-  &:hover ${NavNumbers} {
+  &:hover ${NavNumber} {
     color: #1da1f2;
   }
   &.active {
     border-bottom: 2px solid #1da1f2;
   }
-  &.active ${NavNumbers} {
+  &.active ${NavNumber} {
     color: #1da1f2;
   }
 `;
@@ -83,7 +79,6 @@ const FollowBtn = styled.button`
   height: 32px;
   line-height: 14px;
   text-align: center;
-  letter-spacing: 0.01px;
   padding: 8px 15px;
   transition: all 0.2s ease-in-out;
   min-width: 99px;
@@ -95,7 +90,7 @@ const FollowBtn = styled.button`
 const MoreBtn = styled.button`
   cursor: pointer;
   margin: 0 18px;
-  background-image: url(${Icon_More});
+  background-image: url(${iconMore});
   border: none;
   width: 4px;
   height: 14px;
@@ -111,46 +106,48 @@ const RightButtons = () => (
 );
 
 export const MidNavBar = () => (
-  <MainBlock className="row">
+  <Container>
     <div className="container">
       <div className="row">
         <div className="col-xs-3" />
-        <MidNav className="col-xs-6">
-          <Nav>
-            <NavItem>
-              <Link to="/EveryInteraction">
-                <NavText>Tweets</NavText>
-                <NavNumbers active>8,058</NavNumbers>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/EveryInteraction/Following">
-                <NavText>Following</NavText>
-                <NavNumbers>721</NavNumbers>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/EveryInteraction/Followers">
-                <NavText>Followers</NavText>
-                <NavNumbers>1,815</NavNumbers>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/EveryInteraction/Likes">
-                <NavText>Likes</NavText>
-                <NavNumbers>460</NavNumbers>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/EveryInteraction/Lists">
-                <NavText>Lists</NavText>
-                <NavNumbers>2</NavNumbers>
-              </Link>
-            </NavItem>
-          </Nav>
-        </MidNav>
+        <div className="col-xs-6">
+          <MidNav>
+            <Nav>
+              <NavItem>
+                <Link to="/EveryInteraction">
+                  <NavText>Tweets</NavText>
+                  <NavNumber active>8,058</NavNumber>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/EveryInteraction/Following">
+                  <NavText>Following</NavText>
+                  <NavNumber>721</NavNumber>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/EveryInteraction/Followers">
+                  <NavText>Followers</NavText>
+                  <NavNumber>1,815</NavNumber>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/EveryInteraction/Likes">
+                  <NavText>Likes</NavText>
+                  <NavNumber>460</NavNumber>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/EveryInteraction/Lists">
+                  <NavText>Lists</NavText>
+                  <NavNumber>2</NavNumber>
+                </Link>
+              </NavItem>
+            </Nav>
+          </MidNav>
+        </div>
         <RightButtons />
       </div>
     </div>
-  </MainBlock>
+  </Container>
 );

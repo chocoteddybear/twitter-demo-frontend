@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import "flexboxgrid2";
 import { NavLink } from "react-router-dom";
-import Icon_Home from "./images/Icon_Home.svg";
-import Icon_Moments from "./images/Icon_Moments.svg";
-import Icon_Notifications from "./images/Icon_Notifications.svg";
-import Icon_Messages from "./images/Icon_Messages.svg";
-import Icon_TwitterLogo from "./images/Icon_TwitterLogo.svg";
-import Icon_Magnifier from "./images/Icon_Magnifier.svg";
+import iconHome from "./images/icon-home.svg";
+import iconMoments from "./images/icon-moments.svg";
+import iconNotifications from "./images/icon-notifications.svg";
+import iconMessages from "./images/icon-messages.svg";
+import iconTwitterLogo from "./images/icon-twitter-logo.svg";
+import iconMagnifier from "./images/icon-magnifier.svg";
 
 const TopNav = styled.div`
   display: flex;
@@ -32,7 +31,6 @@ const Link = styled(NavLink)`
   font-size: 13px;
   font-weight: bold;
   line-height: 20px;
-  letter-spacing: 0.01px;
   color: #667580;
   &:hover {
     color: #1da1f2;
@@ -52,17 +50,17 @@ const TwitterLogo = styled.img`
   margin-top: 18px;
 `;
 
-const TopBarRight = styled.div`
+const RightSide = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-top: 7px;
 `;
 
 const Search = styled.input`
   background-color: #f5f8fa;
   border-radius: 21px;
   border: 1px solid #e6ecf0;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #14171a;
   display: block;
@@ -71,7 +69,7 @@ const Search = styled.input`
   padding: 8px 32px 8px 12px;
   transition: all 0.2s ease-in-out;
   min-width: 220px;
-  background-image: url(${Icon_Magnifier});
+  background-image: url(${iconMagnifier});
   background-repeat: no-repeat;
   background-position: 193px 7px;
 `;
@@ -97,7 +95,6 @@ const TopTweetBtn = styled.button`
   font-weight: bold;
   line-height: 14px;
   text-align: center;
-  letter-spacing: 0.01px;
   padding: 8px 14px;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -108,44 +105,50 @@ const TopTweetBtn = styled.button`
 export const Header = () => (
   <div className="container">
     <div className="row">
-      <TopNav className="col-xs-5">
-        <Nav>
-          <NavItem>
-            <Link to="/EveryInteraction">
-              <img src={Icon_Home} alt="Home" />
-              <NavText>Home</NavText>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/moments">
-              <img src={Icon_Moments} alt="Moments" />
-              <NavText>Moments</NavText>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/notifications">
-              <img src={Icon_Notifications} alt="Notifications" />
-              <NavText>Notifications</NavText>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/messages">
-              <img src={Icon_Messages} alt="Messages" />
-              <NavText>Messages</NavText>
-            </Link>
-          </NavItem>
-        </Nav>
-      </TopNav>
-      <div className="col-xs-2 center-lg">
-        <TwitterLogo src={Icon_TwitterLogo} alt="Twitter" />
+      <div className="col-xs-5">
+        <TopNav>
+          <Nav>
+            <NavItem>
+              <Link to="/EveryInteraction">
+                <img src={iconHome} alt="Home" />
+                <NavText>Home</NavText>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/moments">
+                <img src={iconMoments} alt="Moments" />
+                <NavText>Moments</NavText>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/notifications">
+                <img src={iconNotifications} alt="Notifications" />
+                <NavText>Notifications</NavText>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/messages">
+                <img src={iconMessages} alt="Messages" />
+                <NavText>Messages</NavText>
+              </Link>
+            </NavItem>
+          </Nav>
+        </TopNav>
       </div>
-      <TopBarRight className="col-xs-5">
-        <Search placeholder="Search Twitter" />
-        <AvatarLink href="/EveryInteraction">
-          <AvatarMini src={process.env.PUBLIC_URL + "/images/EIAvatar.png"} />
-        </AvatarLink>
-        <TopTweetBtn>Tweet</TopTweetBtn>
-      </TopBarRight>
+      <div className="col-xs-2 center-lg">
+        <TwitterLogo src={iconTwitterLogo} alt="Twitter" />
+      </div>
+      <div className="col-xs-5">
+        <RightSide>
+          <Search placeholder="Search Twitter" />
+          <AvatarLink href="/EveryInteraction">
+            <AvatarMini
+              src={process.env.PUBLIC_URL + "/images/ei-avatar.png"}
+            />
+          </AvatarLink>
+          <TopTweetBtn>Tweet</TopTweetBtn>
+        </RightSide>
+      </div>
     </div>
   </div>
 );
